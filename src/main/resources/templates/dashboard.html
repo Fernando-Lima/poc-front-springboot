@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+<h1>Dashboard</h1>
+
+<form th:action="@{/call-api}" method="get">
+    <button type="submit" class="btn btn-primary">
+        Acessar API
+    </button>
+</form>
+
+<hr/>
+
+<div th:if="${apiResponse}" class="mt-4">
+    <div th:class="${success} ? 'alert alert-success' : 'alert alert-danger'">
+        <pre th:text="${apiResponse}"></pre>
+    </div>
+</div>
+
+</body>
+</html>
